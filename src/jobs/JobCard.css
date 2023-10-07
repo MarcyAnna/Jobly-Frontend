@@ -1,0 +1,20 @@
+.card-body {
+    margin: 1em 25em;
+    padding: .5em 0;
+}
+
+.card-title {
+    border: 2px solid darkslateblue;
+    color: #4B0082;
+    font-size: 1.2em;
+    padding: 1em 0;
+}
+
+.card-company {
+    color: darkslateblue;
+    font-size: 1em;
+}
+
+.card-salary {
+    color: rebeccapurple;
+}

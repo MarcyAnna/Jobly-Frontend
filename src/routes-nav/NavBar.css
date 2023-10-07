@@ -1,0 +1,25 @@
+.navBar {
+    background-color: whitesmoke;
+    border-bottom: 7px solid darkslateblue;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.nav-link:first-child {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0px;
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #4B0082;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 10px;
+    color: #4B0082;
+}

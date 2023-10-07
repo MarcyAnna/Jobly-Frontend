@@ -1,0 +1,18 @@
+h1 {
+    color: #4B0082;
+    font-size: 2em;
+    padding: 1em;
+}
+
+h3 {
+    color:#4B0082;
+    font-size: 1.3em;
+    padding: 1.5em;
+}
+
+.nav-link-home {
+    color: darkslateblue;
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin: 20px;
+}
