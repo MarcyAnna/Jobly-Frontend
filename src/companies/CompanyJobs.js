@@ -1,5 +1,6 @@
 import React from "react";
 import {  useLoaderData } from "react-router-dom";
+import JobCard from "../jobs/JobCard";
 import JoblyApi from "../api/api";
 
 
@@ -11,22 +12,21 @@ async function companyLoader({ params }) {
 }
 const CompanyJobs = () => {
     const { company } = useLoaderData();
-    // useEffect( () => {
-    //     callGetCompanyJobs()
-    // }, [handle])
-
-    // const [company, setCompany] = useState(null);
-
-    // async function callGetCompanyJobs() {
-    //     let company = await JoblyApi.getCompany(handle);
-    //     setCompany(company); 
-    //     return company;    
-    // }
+    let jobs = company.jobs;
 
     return (
         <div className="company-jobs">
             <h4>{company.name}</h4>
             <div className="comp-description">{company.description}</div>
+            <div className="company-jobs">
+         {jobs.map(j => <JobCard
+         key={j.id}
+         title={j.title} 
+         companyName={j.companyName}
+         salary={j.salary}
+         equity={j.equity}
+         />)}
+     </div>
         </div>
     )
 }

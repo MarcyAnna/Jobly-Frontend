@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 
 
-const Profile = ( editProfile ) => {
-    const navigate = useNavigate();
+const Profile = () => {
+ const { editProfile } = useAuth();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     firstName: "",
@@ -16,12 +18,8 @@ const Profile = ( editProfile ) => {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await editProfile(formData);
-    if (result.success) {
-      navigate("/companies");
-    } else {
-      setFormErrors(result.errors);
-    }
+   await editProfile(formData);
+   navigate("/");
   }
 
   function handleChange(evt) {
@@ -34,7 +32,7 @@ const Profile = ( editProfile ) => {
           <div className="card">
             <div className="card-body">
               <form onSubmit={handleSubmit}>
-                <div className="form-group">
+              <div className="form-group">
                   <label>Username</label>
                   <input
                       name="username"

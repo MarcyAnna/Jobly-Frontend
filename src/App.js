@@ -1,12 +1,12 @@
 import React from "react";
 import {  RouterProvider } from "react-router-dom";
-// import useLocalStorage from "./hooks/useLocalStorage";
 import { AuthProvider } from "./context/AuthContext";
 import  BrowserRoutes from "./routes-nav/BrowserRouter";
 import './App.css';
 
 
 function App() {
+
   
   return (
     <div className="App">
@@ -17,4 +17,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;    

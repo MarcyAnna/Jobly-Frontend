@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 import "./Signup.css";
 
 
-function Signup({ signup }) {
+function Signup() {
+  const { signup } = useAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -14,22 +16,19 @@ function Signup({ signup }) {
   });
   const [formErrors, setFormErrors] = useState([]);
 
-  console.debug(
-      "SignupForm",
-      "signup=", typeof signup,
-      "formData=", formData,
-      "formErrors=", formErrors,
-  );
+  // console.debug(
+  //     "SignupForm",
+  //     "signup=", typeof signup,
+  //     "formData=", formData,
+  //     "formErrors=", formErrors,
+  // );
 
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await signup(formData);
-    if (result.success) {
-      navigate("/companies");
-    } else {
-      setFormErrors(result.errors);
-    }
+    console.log("signupfunc", formData)
+     await signup(formData);
+    navigate("/");
   }
 
   function handleChange(evt) {

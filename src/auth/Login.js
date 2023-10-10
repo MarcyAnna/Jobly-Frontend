@@ -1,7 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
-function Login({ login }) {
+function Login() {
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -9,22 +11,18 @@ function Login({ login }) {
   });
   const [formErrors, setFormErrors] = useState([]);
 
-  console.debug(
-      "LoginForm",
-      "login=", typeof login,
-      "formData=", formData,
-      "formErrors", formErrors,
-  );
+  // console.debug(
+  //     "LoginForm",
+  //     "login=", typeof login,
+  //     "formData=", formData,
+  //     "formErrors", formErrors,
+  // );
 
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await login(formData);
-    if (result.success) {
-      navigate("/companies");
-    } else {
-      setFormErrors(result.errors);
-    }
+    await login(formData);
+    navigate("/");
   }
 
   function handleChange(evt) {

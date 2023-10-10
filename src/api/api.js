@@ -45,14 +45,14 @@ class JoblyApi {
 
   static async login(data) {
       let res = await this.request(`auth/token`, data, "post");
-      return res.token;
+      return res;
   }
 
   // Signup user
 
   static async signup(data) {
-      let res = await this.request(`auth/signup`, data, "post");
-      return res.token;
+      let res = await this.request(`auth/register`, data, "post");
+      return res;
   }
 
   //Get all companies
@@ -78,16 +78,16 @@ class JoblyApi {
 
     //edit profile and save
 
-    static async editProfile(username, data) {
-        let res = await this.request(`users/${username}`, data, "patch");
+    static async editProfile(user, data) {
+        let res = await this.request(`users/${user}`, data, "patch");
         return res.user;
     }
   }
 
+  // JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
+  //   "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
+  //   "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
 
-// for now, put token ("testuser" / "password" on class)
-JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-    "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-    "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+
 
  export default JoblyApi;

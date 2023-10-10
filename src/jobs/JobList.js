@@ -6,22 +6,10 @@ import JobCard from "./JobCard";
 
 async function jobsLoader() {
     const jobs= await JoblyApi.getJobs();
-    // console.log(jobs)
     return { jobs };
 }
 
 const JobList = () => {
-    // useEffect( () => {
-    //     callGetJobs()
-    // }, [])
-
-    // const [jobs, setJobs] = useState([]);
-
-    // async function callGetJobs() {
-    //     let jobs = await JoblyApi.getJobs();
-    //     setJobs(jobs); 
-    //     return jobs;    
-    // }
     const { jobs } = useLoaderData();
 
     return (
